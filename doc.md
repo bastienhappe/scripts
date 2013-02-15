@@ -1,7 +1,7 @@
 Mise en place de l'automatisation des appels 
 ================================
 
-<dt> Architecture de test </dt>
+<dt> *Architecture de test* </dt>
 
 Tel ---- SS7 GW2 <----------> SS7 GW1 <----> switch ---- Tel
 
@@ -35,9 +35,10 @@ Scenario de registration :
 
 
 Envoi d'un premier Register : 
-
+<pre><code>
 <send retrans="500">
-    <![CDATA[
+  
+ <![CDATA[
 
       REGISTER sip:a.phone.kwaoo.net SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
@@ -56,7 +57,7 @@ Envoi d'un premier Register :
   </recv>
  <recv response="401" auth="true">
   </recv>
-
+</code></pre>
 Note : Enabling authentication is simple. When receiving a 401 (Unauthorized) or a 407 (Proxy Authentication Required), you must add auth="true" in the <recv> command to take the challenge into account.
 
 
