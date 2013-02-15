@@ -115,18 +115,15 @@ Réponses :
       Contact: <sip:[server_ip]:[local_port];transport=[transport]>
       Content-Length: 0
 
-    ]]>
-  </send>
-
-  <recv request="ACK"
+    	]]>
+	</send>
+  	<recv request="ACK"
         optional="true"
         rtd="true"
         crlf="true">
-  </recv>
-
-  <recv request="BYE">
-  </recv>
-
+  	</recv>
+  	<recv request="BYE">
+  	</recv>
   	<send>
     <![CDATA[
 
