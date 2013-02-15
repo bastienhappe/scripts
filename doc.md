@@ -32,6 +32,7 @@ Pour les numéros portés :
 /usr/local/bin/sipp -sf branchc.xml -trace_msg -trace_logs -nd -m 1 a.phone.kwaoo.net
 
 Scenario de registration :
+-------------------------
 
 
 Envoi d'un premier Register : 
@@ -60,7 +61,7 @@ Envoi d'un premier Register :
 </pre>
 Note : Enabling authentication is simple. When receiving a 401 (Unauthorized) or a 407 (Proxy Authentication Required), you must add auth="true" in the <recv> command to take the challenge into account.
 
-
+-------------------------
 Envoi d'un second register : 
 
 <send retrans="500">
@@ -82,7 +83,7 @@ Envoi d'un second register :
 
  <recv response="100">
   </recv>
-
+-------------------------
 Authentification réussie : 
 
 <recv response="200">
