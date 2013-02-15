@@ -42,8 +42,8 @@ Envoi d'un premier Register :
 
       REGISTER sip:a.phone.kwaoo.net SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]>;tag=[call_number]
-      To: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]>
+      From: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]\>;tag=[call_number]
+      To: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]\>
       Call-ID: [call_id]
       CSeq: 1 REGISTER
       Contact: sip:0973330001@[local_ip]:[local_port]
