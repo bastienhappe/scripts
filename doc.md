@@ -64,25 +64,25 @@ Note : Enabling authentication is simple. When receiving a 401 (Unauthorized) or
 -------------------------
 Envoi d'un second register : 
 
-<send retrans="500">
-    <![CDATA[
+	<send retrans="500">
+    	<![CDATA[
 
-      REGISTER sip:a.phone.kwaoo.net SIP/2.0
-      Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-      From: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]>;tag=[call_number]
-      To: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]>
-      Call-ID: [call_id]
-      CSeq: 2 REGISTER
-      [authentication username=0973330001 password=toto]
-      Contact: sip:0973330001@[local_ip]:[local_port]
-      Content-Length: 0
-      Expires: 3000
+      	REGISTER sip:a.phone.kwaoo.net SIP/2.0
+    	  Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+     	 From: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]>;tag=[call_number]
+     	 To: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]>
+     	 Call-ID: [call_id]
+    	  CSeq: 2 REGISTER
+     	 [authentication username=0973330001 password=toto]
+     	 Contact: sip:0973330001@[local_ip]:[local_port]
+     	 Content-Length: 0
+     	 Expires: 3000
 
-    ]]>
-  </send>
+   	 ]]>
+  	</send>
 
- <recv response="100">
-  </recv>
+ 	<recv response="100">
+  	</recv>
 -------------------------
 Authentification réussie : 
 
