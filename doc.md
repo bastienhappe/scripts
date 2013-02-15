@@ -36,10 +36,10 @@ Scenario de registration :
 
 
 Envoi d'un premier Register : 
-<pre>
-<send retrans="500">
+
+    <send retrans="500">
   
- <![CDATA[
+    <![CDATA[
 
       REGISTER sip:a.phone.kwaoo.net SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
@@ -52,7 +52,7 @@ Envoi d'un premier Register :
       Expires: 3000
 
     ]]>
-  </send>
+    </send>
 
  <recv response="100">
   </recv>
