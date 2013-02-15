@@ -27,7 +27,7 @@ Pour les numéros portés :
 ^\(90036.*\)$=sig/\1;trunk=isup1
 
 <dt> Utilisation de SIPp </dt>
-* 1ere phase : Registration *
+*1ere phase : Registration*
 
 /usr/local/bin/sipp -sf branchc.xml -trace_msg -trace_logs -nd -m 1 a.phone.kwaoo.net
 
