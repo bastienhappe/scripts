@@ -68,15 +68,15 @@ Envoi d'un second register :
     	<![CDATA[
 
       	REGISTER sip:a.phone.kwaoo.net SIP/2.0
-    	  Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
-     	 From: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]>;tag=[call_number]
-     	 To: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]>
-     	 Call-ID: [call_id]
-    	  CSeq: 2 REGISTER
-     	 [authentication username=0973330001 password=toto]
-     	 Contact: sip:0973330001@[local_ip]:[local_port]
-     	 Content-Length: 0
-     	 Expires: 3000
+    	Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
+     	From: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]>;tag=[call_number]
+     	To: ua1 <sip:0973330001@a.phone.kwaoo.net:[local_port]>
+     	Call-ID: [call_id]
+    	CSeq: 2 REGISTER
+     	[authentication username=0973330001 password=toto]
+     	Contact: sip:0973330001@[local_ip]:[local_port]
+     	Content-Length: 0
+     	Expires: 3000
 
    	 ]]>
   	</send>
@@ -103,8 +103,8 @@ Note : Using rrs="true" and [routes] to keep Record-Route header set supplied by
 
 Réponses :
 
- <send>
-    <![CDATA[
+	<send>
+	<![CDATA[
 
       SIP/2.0 180 Ringing
       [last_Via:]
@@ -127,7 +127,7 @@ Réponses :
   <recv request="BYE">
   </recv>
 
-  <send>
+  	<send>
     <![CDATA[
 
       SIP/2.0 200 OK
@@ -141,7 +141,7 @@ Réponses :
       Content-Length: 0
 
     ]]>
-  </send>
+  	</send>
 
 
 
