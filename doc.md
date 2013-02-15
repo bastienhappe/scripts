@@ -144,8 +144,8 @@ Réponses :
 
 * 3eme phase : Passage de l'appel *
 
- <send retrans="500">
-    <![CDATA[
+	<send retrans="500">
+    	<![CDATA[
 
       INVITE sip:[service]@[remote_ip]:[remote_port] SIP/2.0
       Via: SIP/2.0/[transport] [local_ip]:[local_port];branch=[branch]
@@ -168,5 +168,5 @@ Réponses :
       a=rtpmap:0 PCMU/8000
 
     ]]>
-  </send>
+  	</send>
 
