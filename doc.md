@@ -35,7 +35,7 @@ Scenario de registration :
 
 
 Envoi d'un premier Register : 
-<code>
+<pre>
 <send retrans="500">
   
  <![CDATA[
@@ -57,7 +57,7 @@ Envoi d'un premier Register :
   </recv>
  <recv response="401" auth="true">
   </recv>
-</code>
+</pre>
 Note : Enabling authentication is simple. When receiving a 401 (Unauthorized) or a 407 (Proxy Authentication Required), you must add auth="true" in the <recv> command to take the challenge into account.
 
 
