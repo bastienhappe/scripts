@@ -1,0 +1,142 @@
+#!/bin/bash
+
+# To use this template, your `run.sh` should contain:
+#
+#     #!/bin/bash
+#     exec ../run.sh.template "$@"
+#
+# Modify any parameter you'd like before calling `exec`.
+
+
+# The following parameters may be scenario-dependent.
+
+# TIME: How long to capture the trace
+TIME=${TIME:-30}
+# DURATION: Call duration
+DURATION=${DURATION:-15}
+# MAX_CALLS: Maximum number of calls
+MAX_CALLS=${MAX_CALLS:-1}
+# RATE: Call rate (cps)
+RATE=${RATE:-1}
+# CALLED 
+CALLED=973330001
+# LOCAL IP
+LOCALIP=192.168.1.6
+
+
+# The following parameters are platform-dependent.
+
+# LHSIPP: Address for the left-hand target of SIPP
+LHSIPP=${LHSIPP:-$1}
+# RHSIPP: Address for the right-hand target of SIPP
+RHSIPP=${RHSIPP:-$2}
+# RHGW: Address for the Unit Under Test (UUT)
+RHGW=${RHGW:-$3}
+
+# W1G1: Name of the SS7 signaling interface on RHGW
+W1G1=${W1G1:-w1g1}
+# W1G2: Name of the SS7 CIC (audio channels) interface on RHGW
+W1G2=${W1G2:-w1g2}
+
+# --- No user-serviceable parts below ---
+# Script variables
+STAMP=`date -u '+%F-%T'`
+
+ERROR_FILE=error.log
+LOG_FILE=log.log
+MSG_FILE=message.log
+SMS_FILE=short.log
+STATS_FILE=statistics.log
+
+
+# Start
+mkdir $STAMP
+cd $STAMP
+
+# Start captures on RHGW
+# MTP3 capture
+	  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G1 -pcap -pcap_file $W1G1-mtp3.pcap -mtp2-msu -prot MTP2 -full -systime -c trd" &
+# MTP2 capture
+	  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G1 -pcap -pcap_file $W1G1-mtp2.pcap           -prot MTP2 -full -systime -c trd" &
+# Audio (CICs) capture
+	  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G2 -pcap -pcap_file $W1G2-audio.pcap          -prot MTP2 -full -systime -c trd" &
+
+# Setup RH 
+if [ -f ../rh-setup.xml ] ; then
+	sipp -nd \
+	    -timeout $TIME \
+	    -sf ../rh-setup.xml \
+	    -trace_err      -error_file rh-setup.$ERROR_FILE \
+	    -trace_logs     -log_file rh-setup.$LOG_FILE \
+	    -trace_msg      -message_file rh-setup.$MSG_FILE \
+	    -trace_shortmsg -shortmessage_file rh-setup.$SMS_FILE \
+	    -trace_stat     -stf rh-setup.$STATS_FILE \
+	    -m $MAX_CALLS \
+	    $RHSIPP
+fi
+# Waiting for INVITE
+if [ -f ../rh-start.xml ] ; then
+	sipp -nd -bg\
+	    -timeout $TIME \
+	    -trace_err      -error_file rh-start.$ERROR_FILE \
+	    -trace_logs     -log_file rh-start.$LOG_FILE \
+	    -trace_msg      -message_file rh-start.$MSG_FILE \
+	    -trace_shortmsg -shortmessage_file rh-start.$SMS_FILE \
+	    -trace_stat     -stf rh-start.$STATS_FILE \
+	    -m $MAX_CALLS \
+	    -sf ../rh-start.xml \
+	    -i $LOCALIP  &
+fi
+# Calling
+if [ -f ../lh-start.xml ]; then 
+	sipp -nd \
+	    -s $CALLED    \
+	    -timeout $TIME \
+	    -trace_err      -error_file lh-start.$ERROR_FILE \
+	    -trace_logs     -log_file lh-start.$LOG_FILE \
+	    -trace_msg      -message_file lh-start.$MSG_FILE \
+	    -trace_shortmsg -shortmessage_file lh-start.$SMS_FILE \
+	    -trace_stat     -stf lh-start.$STATS_FILE \
+	    -m $MAX_CALLS \
+	    -sf ../lh-start.xml \
+	    $LHSIPP
+fi
+# Flushing Registration
+if [ -f ../rh-flush.xml ] ; then
+	sipp -nd \
+	    -timeout $TIME \
+	    -sf ../rh-flush.xml \
+	    -trace_err      -error_file rh-flush.$ERROR_FILE \
+	    -trace_logs     -log_file rh-flush.$LOG_FILE \
+	    -trace_msg      -message_file rh-flush.$MSG_FILE \
+	    -trace_shortmsg -shortmessage_file rh-flush.$SMS_FILE \
+	    -trace_stat     -stf rh-flush.$STATS_FILE \
+	    -m $MAX_CALLS \
+	    $RHSIPP
+fi
+	scp  $RHGW:$W1G1-mtp3.pcap . 
+	scp  $RHGW:$W1G1-mtp2.pcap . 
+	scp  $RHGW:$W1G2-audio.pcap . 
+  # Start captures on RHGW
+  # MTP3 capture
+  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G1 -pcap -pcap_file $W1G1-mtp3.pcap -mtp2-msu -prot MTP2 -full -systime -c trd" &
+  # MTP2 capture
+  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G1 -pcap -pcap_file $W1G1-mtp2.pcap           -prot MTP2 -full -systime -c trd" &
+  # Audio (CICs) capture
+  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G2 -pcap -pcap_file $W1G2-audio.pcap          -prot MTP2 -full -systime -c trd" &
+
+  # Setup (RH then LH)
+  for name in rh-setup lh-setup; do
+    if [ -f $name.xml ]; then
+      run_sipp $name
+    fi
+  done
+
+  # Start (RH then LH)
+  for name in rh-start lh-start; do
+    if [ -f $name.xml ]; then
+      run_sipp $name
+    fi
+  done
+
+cd -

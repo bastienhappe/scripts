@@ -1,0 +1,11 @@
+sipp: The following events occured:
+2013-02-27	11:26:56:067	1361960816.067305: Continuing call on unexpected message for Call-Id '1-24828@127.0.1.1': while expecting '200' (index 9), received 'SIP/2.0 100 Trying
+Via: SIP/2.0/UDP 127.0.1.1:5061;branch=z9hG4bK-24828-1-8;received=212.85.130.11
+From: sipp <sip:322857383@127.0.1.1:5061>;tag=1
+To: sut <sip:973330001@212.85.130.91:5060>;tag=530111651
+Call-ID: 1-24828@127.0.1.1
+CSeq: 2 BYE
+Server: YATE/4.1.1
+Content-Length: 0
+
+'.

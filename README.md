@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 In this directory we create one sub-directory per SPIROU test scenario.
 Each sub-directory contains a script called 'run.sh' which starts the instrumentation (`sipp` on test server, `dumpcap` for MTP2, MTP3, and audio CIC on the SS7 gateway).
 
@@ -38,3 +39,12 @@ The XML scripts are executed in the order listed above, with the following inten
 * rh-setup, lh-setup: any pre-call setup steps (for example, REGISTER)
 * rh-start: start the right-hand call scenario (normally, wait for INVITE in an inbound scenario)
 * lh-start: start the left-hand call scenario
+=======
+CCNQ3 SS7 (Yate) SPIROU Test Suite
+==================================
+
+This project documents tests conducted with the goal of obtaining SPIROU (French national SS7 variant) certification.
+
+This project is financed in part by [kwaoo.com](http://kwaoo.com/).
+It uses an [expanded version](https://github.com/shimaore/yate/tree/master+shimaore) of Yate.
+>>>>>>> 1df80701990c0f2cf8f08d788b13a34d0004fdcd
