@@ -48,24 +48,6 @@ MSG_FILE=message.log
 SMS_FILE=short.log
 STATS_FILE=statistics.log
 
-#<<<<<<< HEAD
-#=======
-#function run_sipp () {
-#  name = $1
-#  sipp -bg -nd -t un \
-#    -sleep 1 \
-#    -d $DURATION \
-#    -r $RATE \
-#    -timeout $TIME \
-#    -trace_err      -error_file $name.$ERROR_FILE \
-#    -trace_logs     -log_file $name.$LOG_FILE \
-#    -trace_msg      -message_file $name.$MSG_FILE \
-#    -trace_shortmsg -shortmessage_file $name.$SMS_FILE \
-#    -trace_stat     -stf $name.$STATS_FILE \
-#    -m $MAX_CALLS \
-#    -sf $name.xml \
-#    $RHSIPP
-#}
 
 # Start
 mkdir $STAMP
