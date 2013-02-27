@@ -38,3 +38,11 @@ The XML scripts are executed in the order listed above, with the following inten
 * rh-setup, lh-setup: any pre-call setup steps (for example, REGISTER)
 * rh-start: start the right-hand call scenario (normally, wait for INVITE in an inbound scenario)
 * lh-start: start the left-hand call scenario
+=======
+CCNQ3 SS7 (Yate) SPIROU Test Suite
+==================================
+
+This project documents tests conducted with the goal of obtaining SPIROU (French national SS7 variant) certification.
+
+This project is financed in part by [kwaoo.com](http://kwaoo.com/).
+It uses an [expanded version](https://github.com/shimaore/yate/tree/master+shimaore) of Yate.
