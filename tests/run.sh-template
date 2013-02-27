@@ -60,7 +60,9 @@ cd $STAMP
 	  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G1 -pcap -pcap_file $W1G1-mtp2.pcap           -prot MTP2 -full -systime -c trd" &
 # Audio (CICs) capture
 	  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G2 -pcap -pcap_file $W1G2-audio.pcap          -prot MTP2 -full -systime -c trd" &
-
+	sleep $TIME +5 && scp  $RHGW:$W1G1-mtp3.pcap . & 
+	sleep $TIME +5 && scp  $RHGW:$W1G1-mtp2.pcap . &
+	sleep $TIME +5 && scp  $RHGW:$W1G2-audio.pcap . &
 # Setup RH 
 if [ -f ../rh-setup.xml ] ; then
 	sipp -nd \
@@ -114,7 +116,4 @@ if [ -f ../rh-flush.xml ] ; then
 	    -m $MAX_CALLS \
 	    $RHSIPP
 fi
-	scp  $RHGW:$W1G1-mtp3.pcap . 
-	scp  $RHGW:$W1G1-mtp2.pcap . 
-	scp  $RHGW:$W1G2-audio.pcap . 
 cd -
