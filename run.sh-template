@@ -48,24 +48,6 @@ MSG_FILE=message.log
 SMS_FILE=short.log
 STATS_FILE=statistics.log
 
-#<<<<<<< HEAD
-#=======
-#function run_sipp () {
-#  name = $1
-#  sipp -bg -nd -t un \
-#    -sleep 1 \
-#    -d $DURATION \
-#    -r $RATE \
-#    -timeout $TIME \
-#    -trace_err      -error_file $name.$ERROR_FILE \
-#    -trace_logs     -log_file $name.$LOG_FILE \
-#    -trace_msg      -message_file $name.$MSG_FILE \
-#    -trace_shortmsg -shortmessage_file $name.$SMS_FILE \
-#    -trace_stat     -stf $name.$STATS_FILE \
-#    -m $MAX_CALLS \
-#    -sf $name.xml \
-#    $RHSIPP
-#}
 
 # Start
 mkdir $STAMP
@@ -135,26 +117,4 @@ fi
 	scp  $RHGW:$W1G1-mtp3.pcap . 
 	scp  $RHGW:$W1G1-mtp2.pcap . 
 	scp  $RHGW:$W1G2-audio.pcap . 
-  # Start captures on RHGW
-  # MTP3 capture
-  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G1 -pcap -pcap_file $W1G1-mtp3.pcap -mtp2-msu -prot MTP2 -full -systime -c trd" &
-  # MTP2 capture
-  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G1 -pcap -pcap_file $W1G1-mtp2.pcap           -prot MTP2 -full -systime -c trd" &
-  # Audio (CICs) capture
-  ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i $W1G2 -pcap -pcap_file $W1G2-audio.pcap          -prot MTP2 -full -systime -c trd" &
-
-  # Setup (RH then LH)
-  for name in rh-setup lh-setup; do
-    if [ -f $name.xml ]; then
-      run_sipp $name
-    fi
-  done
-
-  # Start (RH then LH)
-  for name in rh-start lh-start; do
-    if [ -f $name.xml ]; then
-      run_sipp $name
-    fi
-  done
-
 cd -
