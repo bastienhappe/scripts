@@ -67,6 +67,7 @@ sleep 5
 # Setup RH 
 if [ -f ../rh-setup.xml ] ; then
 	sipp -nd \
+            -p 5060 \
 	    -timeout $TIME \
 	    -sf ../rh-setup.xml \
 	    -trace_err      -error_file rh-setup.$ERROR_FILE \
@@ -90,23 +91,9 @@ fi
 	    -trace_stat     -stf rh-start.$STATS_FILE \
 	    -m $MAX_CALLS \
 	    -sf ../rh-start.xml \
-	    -i $LOCALIP  &
+	    -i $LOCALIP  
 fi;
-# Calling
-if [ -f ../lh-start.xml ]; then 
-	sipp -nd \
-	    -p 5060
-	    -s $CALLED    \
-	    -timeout $TIME \
-	    -trace_err      -error_file lh-start.$ERROR_FILE \
-	    -trace_logs     -log_file lh-start.$LOG_FILE \
-	    -trace_msg      -message_file lh-start.$MSG_FILE \
-	    -trace_shortmsg -shortmessage_file lh-start.$SMS_FILE \
-	    -trace_stat     -stf lh-start.$STATS_FILE \
-	    -m $MAX_CALLS \
-	    -sf ../lh-start.xml \
-	    $LHSIPP 
-fi)&
+
 # Flushing Registration
 if [ -f ../rh-flush.xml ] ; then
 	sipp -nd \
@@ -120,5 +107,20 @@ if [ -f ../rh-flush.xml ] ; then
 	    -trace_stat     -stf rh-flush.$STATS_FILE \
 	    -m $MAX_CALLS \
 	    $RHSIPP
+fi)&
+# Calling
+if [ -f ../lh-start.xml ]; then 
+	sipp -nd \
+	    -p 5061 \
+	    -s $CALLED    \
+	    -timeout $TIME \
+	    -trace_err      -error_file lh-start.$ERROR_FILE \
+	    -trace_logs     -log_file lh-start.$LOG_FILE \
+	    -trace_msg      -message_file lh-start.$MSG_FILE \
+	    -trace_shortmsg -shortmessage_file lh-start.$SMS_FILE \
+	    -trace_stat     -stf lh-start.$STATS_FILE \
+	    -m $MAX_CALLS \
+	    -sf ../lh-start.xml \
+	    $LHSIPP 
 fi
 cd -
