@@ -78,8 +78,9 @@ if [ -f ../rh-setup.xml ] ; then
 	    $RHSIPP
 fi
 # Waiting for INVITE
-if [ -f ../rh-start.xml ] ; then
+(if [ -f ../rh-start.xml ] ; then
 	sipp -nd -bg\
+            -p 5060 \
 	    -timeout $TIME \
 	    -trace_err      -error_file rh-start.$ERROR_FILE \
 	    -trace_logs     -log_file rh-start.$LOG_FILE \
@@ -91,8 +92,9 @@ if [ -f ../rh-start.xml ] ; then
 	    -i $LOCALIP  &
 fi
 # Calling
-( if [ -f ../lh-start.xml ]; then 
+if [ -f ../lh-start.xml ]; then 
 	sipp -nd \
+	    -p 5060
 	    -s $CALLED    \
 	    -timeout $TIME \
 	    -trace_err      -error_file lh-start.$ERROR_FILE \
@@ -102,8 +104,8 @@ fi
 	    -trace_stat     -stf lh-start.$STATS_FILE \
 	    -m $MAX_CALLS \
 	    -sf ../lh-start.xml \
-	    $LHSIPP
-fi;
+	    $LHSIPP 
+fi;)&
 # Flushing Registration
 if [ -f ../rh-flush.xml ] ; then
 	sipp -nd \
@@ -117,5 +119,5 @@ if [ -f ../rh-flush.xml ] ; then
 	    -trace_stat     -stf rh-flush.$STATS_FILE \
 	    -m $MAX_CALLS \
 	    $RHSIPP
-fi)
+fi
 cd -
