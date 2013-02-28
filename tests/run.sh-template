@@ -78,6 +78,7 @@ if [ -f ../rh-setup.xml ] ; then
 	    $RHSIPP
 fi
 # Waiting for INVITE
+
 (if [ -f ../rh-start.xml ] ; then
 	sipp -nd -bg\
             -p 5060 \
