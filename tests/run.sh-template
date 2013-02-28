@@ -80,7 +80,8 @@ if [ -f ../rh-setup.xml ] ; then
 fi
 # Waiting for INVITE
 
-(if [ -f ../rh-start.xml ] ; then
+(
+if [ -f ../rh-start.xml ] ; then
 	sipp -nd -bg\
             -p 5060 \
 	    -timeout $TIME \
@@ -107,7 +108,8 @@ if [ -f ../rh-flush.xml ] ; then
 	    -trace_stat     -stf rh-flush.$STATS_FILE \
 	    -m $MAX_CALLS \
 	    $RHSIPP
-fi)&
+fi
+)&
 # Calling
 if [ -f ../lh-start.xml ]; then 
 	sipp -nd \
