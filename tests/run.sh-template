@@ -63,6 +63,7 @@ cd $STAMP
 	sleep $TIME +5 && scp  $RHGW:$W1G1-mtp3.pcap . & 
 	sleep $TIME +5 && scp  $RHGW:$W1G1-mtp2.pcap . &
 	sleep $TIME +5 && scp  $RHGW:$W1G2-audio.pcap . &
+sleep 5
 # Setup RH 
 if [ -f ../rh-setup.xml ] ; then
 	sipp -nd \
@@ -90,7 +91,7 @@ if [ -f ../rh-start.xml ] ; then
 	    -i $LOCALIP  &
 fi
 # Calling
-if [ -f ../lh-start.xml ]; then 
+( if [ -f ../lh-start.xml ]; then 
 	sipp -nd \
 	    -s $CALLED    \
 	    -timeout $TIME \
@@ -102,10 +103,11 @@ if [ -f ../lh-start.xml ]; then
 	    -m $MAX_CALLS \
 	    -sf ../lh-start.xml \
 	    $LHSIPP
-fi
+fi;
 # Flushing Registration
 if [ -f ../rh-flush.xml ] ; then
 	sipp -nd \
+            -p 5060 \
 	    -timeout $TIME \
 	    -sf ../rh-flush.xml \
 	    -trace_err      -error_file rh-flush.$ERROR_FILE \
@@ -115,5 +117,5 @@ if [ -f ../rh-flush.xml ] ; then
 	    -trace_stat     -stf rh-flush.$STATS_FILE \
 	    -m $MAX_CALLS \
 	    $RHSIPP
-fi
+fi)
 cd -
