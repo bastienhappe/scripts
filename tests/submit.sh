@@ -1,4 +1,4 @@
 #!/bin/bash
 
-find . -type d -name 'test*' -maxdepth 1  | \
+find . -maxdepth 1 -type d -name 'test*'  | \
   xargs -0 ./submit-test.sh
