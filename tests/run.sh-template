@@ -64,8 +64,8 @@ cd $STAMP
 	sleep $TIME +5 && scp  $RHGW:$W1G1-mtp2.pcap . &
 	sleep $TIME +5 && scp  $RHGW:$W1G2-audio.pcap . &
 sleep 5
-# Setup RH 
 if [ -f ../rh-setup.xml ] ; then
+	echo "Setup RH"
 	sipp -nd \
             -p 5060 \
 	    -timeout $TIME \
@@ -78,10 +78,10 @@ if [ -f ../rh-setup.xml ] ; then
 	    -m $MAX_CALLS \
 	    $RHSIPP
 fi
-# Waiting for INVITE
 
 (
 if [ -f ../rh-start.xml ] ; then
+	echo "Waiting for INVITE"
 	sipp -nd -bg\
             -p 5060 \
 	    -timeout $TIME \
@@ -95,8 +95,9 @@ if [ -f ../rh-start.xml ] ; then
 	    -i $LOCALIP  
 fi;
 
-# Flushing Registration
 if [ -f ../rh-flush.xml ] ; then
+	sleep 10
+	echo "Flushing Registration"
 	sipp -nd \
             -p 5060 \
 	    -timeout $TIME \
@@ -109,11 +110,12 @@ if [ -f ../rh-flush.xml ] ; then
 	    -m $MAX_CALLS \
 	    $RHSIPP
 fi
-)&
-# Calling
+) &
+
 if [ -f ../lh-start.xml ]; then 
+	echo "Calling"
 	sipp -nd \
-	    -p 5061 \
+	    -p 5062 \
 	    -s $CALLED    \
 	    -timeout $TIME \
 	    -trace_err      -error_file lh-start.$ERROR_FILE \
