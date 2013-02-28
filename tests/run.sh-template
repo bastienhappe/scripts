@@ -91,7 +91,7 @@ fi
 	    -m $MAX_CALLS \
 	    -sf ../rh-start.xml \
 	    -i $LOCALIP  &
-fi
+fi;
 # Calling
 if [ -f ../lh-start.xml ]; then 
 	sipp -nd \
@@ -106,7 +106,7 @@ if [ -f ../lh-start.xml ]; then
 	    -m $MAX_CALLS \
 	    -sf ../lh-start.xml \
 	    $LHSIPP 
-fi;)&
+fi)&
 # Flushing Registration
 if [ -f ../rh-flush.xml ] ; then
 	sipp -nd \
