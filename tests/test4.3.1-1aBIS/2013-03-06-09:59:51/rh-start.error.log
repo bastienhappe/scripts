@@ -1,0 +1,11 @@
+sipp: The following events occured:
+2013-03-06	11:00:15:800	1362564015.800231: Continuing call on unexpected message for Call-Id '805ee5ba-00e7-1231-d0be-66e0eb9ac1eb': while expecting '200' (index 8), received 'SIP/2.0 100 Trying
+Via: SIP/2.0/UDP 192.168.1.6:5060;branch=z9hG4bK-5754-1-7
+From:  <sip:0973330001@a.phone.kwaoo.net>;tag=1
+To: "301234567" <sip:00301234567@178.250.209.55>;tag=F1Xrm3t466ZKe
+Call-ID: 805ee5ba-00e7-1231-d0be-66e0eb9ac1eb
+CSeq: 101 BYE
+Server: ccnq3 complete proxy
+Content-Length: 0
+
+'.
