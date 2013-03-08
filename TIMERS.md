@@ -5,25 +5,26 @@ T1
 
 	15-60s 
 	m_t1Interval
-
 	libs/ysig/isup.cpp
 	T1 is started when a REL is sent and canceled when a RLC is received. If T1 expires, REL is retransmitted.
 	Test :
 T2
+
 	180s
 	Test :
 T3
+
 	120s
 	
 	Test :
 T4
+
 	Test :
 T5
-	300-900s
 
+	300-900s
 	m_relTimer
 	m_t5Interval
-
 	libs/ysig/isup.cpp
 	T5 is also started when a REL is sent, and is canceled when a RLC is received. T5 is a longer duration timer than T1 and is intended to provide a mechanism to recover a nonresponding circuit for which a release has been initiated. If T5 expires, a RSC is sent and REL is no longer sent for the nonresponding circuit. An indication of the problem is also given to the maintenance system.
 	Test :
@@ -31,6 +32,7 @@ T6
 	
 	Test :
 T7
+
 	20-30s
 	ISUP_T7_MINVAL
 	ISUP_T7_DEFVAL
@@ -38,35 +40,52 @@ T7
 	libs/ysig/isup.cpp:
 	Also known as the network protection timer. T7 is started when an IAM is sent, and is canceled when an ACM is received. If T7 expires, the circuit is released.
 	Test :
+
 T8
+
 	10-15s
 	Started when an IAM is received with the Continuity Indicator bit set. The timer is stopped when the Continuity Message is received. If T8 expires, a REL is sent to the originating node.
 	Test :
+
 T9
+
 	90-120s
 	m_t9Interval
 	libs/ysig/isup.cpp
 	Not used in ANSI networks. T9 is started when an ACM is received, and is canceled when an ANM is received. If T9 expires, the circuit is released. Although T9 is not specified for ANSI networks, answer timing is usually performed at the originating exchange to prevent circuits from being tied up for an excessive period of time when the destination does not answer.
 	Test :
+
 T10
+
 	4-6s
 	Test :
+
 T11
+
 	15-20s	
 	Test :
+
 T12
+
 	15-60s
 	Test :
+
 T13
+
 	300-900s
 	Test :
 T14
+
 	15-60s
 	Test :
+
 T15
+
 	300-900s
 	Test :
+
 T16
+
 	15-60s
 	Test :
 T17
