@@ -97,6 +97,7 @@ T25
 T26
 	60-180s
 	Test :
+
 T27
 	240s
 	ISUP_T27_MINVAL
@@ -104,15 +105,19 @@ T27
 	ISUP_T27_MAXVAL
 	libs/ysig/isup.cpp
 	Test :
+
 T28
 	10s
 	Test :
+
 T29
 	300-600ms
 	Test :
+
 T30
 	5-10s
 	Test :
+
 T31
 	> 360s
 	Test :
