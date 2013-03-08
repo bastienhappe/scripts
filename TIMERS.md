@@ -88,38 +88,59 @@ T16
 
 	15-60s
 	Test :
+
 T17
+
 	300-900
 	Test :
+
 T18
+
 	15-60s
 	Test :
+
 T19
+
 	300-900s
 	Test :
+
 T20
+
 	15-60s
 	Test :
+
 T21
+
 	300-900
 	Test :
+
 T22
+
 	15-60s
 	Test :
+
 T23
+
 	300-900s
 	Test :
+
 T24
+
 	<2s
 	Test :
+
 T25
+
 	1-10s
 	Test :
+
 T26
+
 	60-180s
 	Test :
 
 T27
+
 	240s
 	ISUP_T27_MINVAL
 	ISUP_T27_DEFVAL
@@ -128,38 +149,55 @@ T27
 	Test :
 
 T28
+
 	10s
 	Test :
 
 T29
+
 	300-600ms
 	Test :
 
 T30
+
 	5-10s
 	Test :
 
 T31
+
 	> 360s
 	Test :
+
 T32
+
 	3-5s
 	Test :
+
 T33
+
 	12-15s
 	Test :
+
 T34
+
 	2-4s
 	ISUP_T34_MINVAL
 	ISUP_T34_DEFVAL
 	ISUP_T34_MAXVAL
 	libs/ysig/isup.cpp
+
 T35
+
 	15-20s
+
 T36
+
 	10-15s
+
 T37
+
 	2-4s
+
 T38
 	
 T39
