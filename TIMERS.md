@@ -2,8 +2,8 @@ TIMERS
 ==================================
 
 T1 
-	15-60s 
 
+	15-60s 
 	m_t1Interval
 
 	libs/ysig/isup.cpp
