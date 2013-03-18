@@ -1,0 +1,83 @@
+----------------------------------------------- 2013-03-18 15:43:43:857.610
+UDP message sent (332 bytes):
+
+REGISTER sip:a.phone.kwaoo.net SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.6:5060;branch=z9hG4bK-29809-1-0
+From: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>;tag=1
+To: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>
+Call-ID: 1-29809@192.168.1.6
+CSeq: 1 REGISTER
+Contact: sip:0973330001@192.168.1.6:5060
+Content-Length: 0
+Expires: 3000
+
+
+----------------------------------------------- 2013-03-18 15:43:43:882.274
+UDP message received [318] bytes :
+
+SIP/2.0 100 Trying
+Via: SIP/2.0/UDP 192.168.1.6:5060;received=10.23.23.128;rport=5060;branch=z9hG4bK-29809-1-0
+From: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>;tag=1
+To: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>
+Call-ID: 1-29809@192.168.1.6
+CSeq: 1 REGISTER
+Server: ccnq3 complete proxy
+Content-Length: 0
+
+
+----------------------------------------------- 2013-03-18 15:43:43:883.397
+UDP message received [468] bytes :
+
+SIP/2.0 401 Unauthorized
+Via: SIP/2.0/UDP 192.168.1.6:5060;received=10.23.23.128;rport=5060;branch=z9hG4bK-29809-1-0
+From: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>;tag=1
+To: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>;tag=c97b4d1cb1f3d0da549e06a8d482ef63.9768
+Call-ID: 1-29809@192.168.1.6
+CSeq: 1 REGISTER
+WWW-Authenticate: Digest realm="a.phone.kwaoo.net", nonce="514728a14a5e4f3ceb9b164e9d74dd90300b9a0b"
+Server: ccnq3 complete proxy
+Content-Length: 0
+
+
+----------------------------------------------- 2013-03-18 15:43:43:883.475
+UDP message sent (540 bytes):
+
+REGISTER sip:a.phone.kwaoo.net SIP/2.0
+Via: SIP/2.0/UDP 192.168.1.6:5060;branch=z9hG4bK-29809-1-3
+From: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>;tag=1
+To: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>
+Call-ID: 1-29809@192.168.1.6
+CSeq: 2 REGISTER
+Authorization: Digest username="0973330001",realm="a.phone.kwaoo.net",uri="sip:178.250.209.54:5060",nonce="514728a14a5e4f3ceb9b164e9d74dd90300b9a0b",response="33cdbabb3c3871c2301e2348101909e2",algorithm=MD5
+Contact: sip:0973330001@192.168.1.6:5060
+Content-Length: 0
+Expires: 3000
+
+
+----------------------------------------------- 2013-03-18 15:43:43:908.382
+UDP message received [318] bytes :
+
+SIP/2.0 100 Trying
+Via: SIP/2.0/UDP 192.168.1.6:5060;received=10.23.23.128;rport=5060;branch=z9hG4bK-29809-1-3
+From: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>;tag=1
+To: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>
+Call-ID: 1-29809@192.168.1.6
+CSeq: 2 REGISTER
+Server: ccnq3 complete proxy
+Content-Length: 0
+
+
+----------------------------------------------- 2013-03-18 15:43:43:936.988
+UDP message received [414] bytes :
+
+SIP/2.0 200 OK
+Via: SIP/2.0/UDP 192.168.1.6:5060;received=10.23.23.128;rport=5060;branch=z9hG4bK-29809-1-3
+From: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>;tag=1
+To: ua1 <sip:0973330001@a.phone.kwaoo.net:5060>;tag=c97b4d1cb1f3d0da549e06a8d482ef63.2e4b
+Call-ID: 1-29809@192.168.1.6
+CSeq: 2 REGISTER
+Contact: <sip:0973330001@10.23.23.128:5060>;expires=3000
+Server: ccnq3 complete proxy
+Content-Length: 0
+
+

@@ -1,0 +1,10 @@
+sipp: The following events occured:
+2013-03-18	15:44:12:068	1363617852.068736: Continuing call on unexpected message for Call-Id '55ae5745-13a1dbef-1a4a95@178.250.209.54': while expecting 'INVITE' (index 0), received 'OPTIONS sip:212.85.130.11:5060 SIP/2.0
+Via: SIP/2.0/UDP 178.250.209.54:5060;branch=0
+From: sip:keepalive@178.250.209.54;tag=1e666236
+To: sip:10.23.23.128:5060
+Call-ID: 55ae5745-13a1dbef-1a4a95@178.250.209.54
+CSeq: 1 OPTIONS
+Content-Length: 0
+
+'.
