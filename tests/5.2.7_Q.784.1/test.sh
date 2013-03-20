@@ -2,7 +2,7 @@
 
 # Script variables
 STAMP=`date -u '+%F-%T'`
-TIME=${TIME:-15}
+TIME=${TIME:-620}
 RHGW=root@212.85.130.91
 
 
@@ -14,7 +14,7 @@ cd $STAMP
 sleep 5
 echo block
 # Blocking circuit
-ssh root@212.85.130.91 "echo -e \"control isup1/ISUP block circuit=1\nquit\" | nc localhost 5038"
+ssh root@212.85.130.90 "echo -e \"control isup1/ISUP block circuit=2\nquit\" | nc localhost 5038"
 echo unblock
 #Unblocking circuit
-ssh root@212.85.130.91 "echo -e \"control isup1/ISUP unblock circuit=1\nquit\" | nc localhost 5038"
+ssh root@212.85.130.90 "echo -e \"control isup1/ISUP unblock circuit=2\nquit\" | nc localhost 5038"
