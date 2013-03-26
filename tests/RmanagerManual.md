@@ -4,8 +4,10 @@ Connexion :
 
 telnet localhost 5038
 
-=====
+
+=======
 Commands :
+==================================
 
 
 Make a call :
@@ -42,4 +44,5 @@ example : control isup1/ISUP block circuit=4
 
 More informations :
 [Rmanager_Commands](http://yate.null.ro/pmwiki/index.php?n=Main.RmanagerCommands)
+
 [Ysigchan_Commands](http://yate.null.ro/pmwiki/index.php?n=Main.Ysigchan#commands)
