@@ -2,7 +2,7 @@ Rmanager allows controlling Yate using a simple telnet client.
 
 Connexion :
 
-telnet localhost 5038
+	telnet localhost 5038
 
 
 =======
@@ -30,6 +30,7 @@ Release a call :
 	control isup-trunk-name block circuit=number [force=yes] [remote=yes] [hwfail=yes]
 
 	control isup-trunk-name unblock circuit=number [force=yes] [remote=yes] [hwfail=yes]
+
 	example : control isup1/ISUP block circuit=1
 
 
