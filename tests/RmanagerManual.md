@@ -28,25 +28,17 @@ example : control isup1/ISUP release circuit=11
 
 	control isup-trunk-name block circuit=number [force=yes] [remote=yes] [hwfail=yes]
 
-	Maintenance local block the specified circuit (ISUP BLK)
-
-	Maintenance or failure remote block the specified circuit
-
 	control isup-trunk-name unblock circuit=number [force=yes] [remote=yes] [hwfail=yes]
+	example : control isup1/ISUP block circuit=1
 
-	Maintenance local unblock the specified circuit (ISUP UBL)
-
-	Maintenance or failure remote unblock the specified circuit
 
 (Un)Block a group of circuits:
 
-control isup-trunk-name block circuits=range [hwfail=yes] [force=yes] [remote=yes]
-	Maintenance or failure local block the specified circuit group (ISUP CGB)
-	Maintenance or failure remote block the specified circuit group
-control isup-trunk-name unblock circuits=range [hwfail=yes] [force=yes] [remote=yes]
-	Maintenance or failure local unblock the specified circuit group (ISUP CGU)
+	control isup-trunk-name block circuits=range [hwfail=yes] [force=yes] [remote=yes]
 
-example : control isup1/ISUP block circuit=4
+	control isup-trunk-name unblock circuits=range [hwfail=yes] [force=yes] [remote=yes]
+
+	example : control isup1/ISUP block circuits=1-4
 
 More informations :
 
