@@ -26,14 +26,16 @@ example : control isup1/ISUP release circuit=11
 (Un)Block a circuit :
 
 
-control isup-trunk-name block circuit=number [force=yes] [remote=yes] [hwfail=yes]
+	control isup-trunk-name block circuit=number [force=yes] [remote=yes] [hwfail=yes]
 
 	Maintenance local block the specified circuit (ISUP BLK)
 
 	Maintenance or failure remote block the specified circuit
 
-control isup-trunk-name unblock circuit=number [force=yes] [remote=yes] [hwfail=yes]
+	control isup-trunk-name unblock circuit=number [force=yes] [remote=yes] [hwfail=yes]
+
 	Maintenance local unblock the specified circuit (ISUP UBL)
+
 	Maintenance or failure remote unblock the specified circuit
 
 (Un)Block a group of circuits:
