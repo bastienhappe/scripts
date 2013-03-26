@@ -12,15 +12,16 @@ Commands :
 
 Make a call :
 
-call chan target
-example : call tone/ring CALLEE_NUMBER
+	call chan target
+	example : call tone/ring CALLEE_NUMBER
 
 Release a call : 
 
-control isup-trunk-name release circuit=number [reason=cause]
-Release a Restart in progress or a call (normal or CCR) on a circuit
 
-example : control isup1/ISUP release circuit=11
+	control isup-trunk-name release circuit=number [reason=cause]
+	Release a Restart in progress or a call (normal or CCR) on a circuit
+
+	example : control isup1/ISUP release circuit=11
 
 
 (Un)Block a circuit :
