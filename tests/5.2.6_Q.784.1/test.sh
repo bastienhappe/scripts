@@ -6,9 +6,6 @@ TIME=${TIME:-620}
 RHGW=root@212.85.130.91
 
 
-mkdir $STAMP
-cd $STAMP
-
 # MTP3 capture
 	 ( ssh $RHGW "(sleep $TIME; echo) | wanpipemon -i w1g1 -pcap -pcap_file w1g1-mtp3.pcap -mtp2-msu -prot MTP2 -full -systime -c trd"; scp  $RHGW:w1g1-mtp3.pcap .; )&
 sleep 5
